@@ -32,6 +32,9 @@ class QualityReport:
     n_gaps_over_1min: int
     max_gap_minutes: float
     weekday_daily_bars_median: float
+    # 閉場時間のフラット・フィラーバー（volume==0 かつ high==low）の除去本数。
+    # validate_bars は既にフィルタ済みフレームを検査するため build_parquet が埋める。
+    n_filler_dropped: int = 0
 
     def as_dict(self) -> dict:
         """JSON/表出力向けの素の dict（タイムスタンプは ISO8601 文字列）。"""
@@ -46,6 +49,7 @@ class QualityReport:
             "first_ts": _ts(self.first_ts),
             "last_ts": _ts(self.last_ts),
             "n_dupes_dropped": int(self.n_dupes_dropped),
+            "n_filler_dropped": int(self.n_filler_dropped),
             "n_ohlc_violations": int(self.n_ohlc_violations),
             "n_out_of_range": int(self.n_out_of_range),
             "n_gaps_over_1min": int(self.n_gaps_over_1min),

@@ -415,8 +415,18 @@ def build_parquet(
     if n_dupes:
         full = full[~dup_mask]
 
+    # 閉場時間のフラット・フィラーバー（volume==0 かつ high==low）を除去する。
+    # Dukascopy 日足は週末・開場前・祝日等に直近値を繰り返すゼロ出来高の平坦足を
+    # 埋めており、実チャート（MT4/TradingView）には現れない。残すと SMA400/BB を
+    # 大きく歪めるため validate 前に落とす。
+    filler_mask = (full["volume"] == 0) & (full["high"] == full["low"])
+    n_filler = int(filler_mask.sum())
+    if n_filler:
+        full = full[~filler_mask]
+
     report = validate_bars(full, pair, source=source)
     report.n_dupes_dropped = n_dupes  # 実際に落とした本数で上書き
+    report.n_filler_dropped = n_filler
     if failed:
         warnings.warn(
             f"{pair}: 再取得しても復旧できなかった破損ファイル {len(failed)} 件: {failed}",

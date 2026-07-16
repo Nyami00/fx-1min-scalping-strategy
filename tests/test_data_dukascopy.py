@@ -15,10 +15,11 @@ from pandas.testing import assert_frame_equal
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from src import config  # noqa: E402
-from src.data import base  # noqa: E402
+from src.data import base, store  # noqa: E402
 from src.data.dukascopy import (  # noqa: E402
     bi5_local_path,
     bi5_url,
+    build_parquet,
     decode_bi5_candles,
     verify_bi5_layout,
 )
@@ -220,6 +221,52 @@ def test_validate_bars_clean_gap_stats():
     assert rep.n_ohlc_violations == 0
     d = rep.as_dict()
     assert d["first_ts"].startswith("2024-01-03T00:00:00")
+
+
+# --------------------------------------------------------------------------- #
+# build_parquet: 閉場時間のフラット・フィラーバー除去
+# --------------------------------------------------------------------------- #
+def test_build_parquet_drops_flat_filler_bars(tmp_path, monkeypatch):
+    monkeypatch.setattr(config, "RAW_DIR", tmp_path / "raw")
+    monkeypatch.setattr(config, "PARQUET_DIR", tmp_path / "parquet")
+
+    day = date(2024, 1, 3)
+    base_ts = pd.Timestamp("2024-01-03", tz="UTC")
+    # OCLH コード: (sec, p1=open, p2=close, p3=low, p4=high, vol)
+    codes = [
+        (0, 109500, 109520, 109480, 109550, 5.0),     # 実バー → 保持
+        (60, 109500, 109500, 109500, 109500, 0.0),    # フラット vol0 → フィラー除去
+        (120, 109500, 109500, 109500, 109500, 0.0),   # フラット vol0 → フィラー除去
+        (180, 109500, 109500, 109500, 109500, 0.0),   # フラット vol0 → フィラー除去
+        (240, 109500, 109500, 109490, 109510, 0.0),   # vol0 だが high!=low → 保持
+        (300, 109500, 109500, 109500, 109500, 3.0),   # フラットだが vol>0 → 保持
+        (360, 109510, 109530, 109490, 109560, 7.0),   # 実バー → 保持
+    ]
+    path = bi5_local_path("EURUSD", day)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(_pack(codes))
+
+    report = build_parquet("EURUSD", day, day, field_order="OCLH")
+
+    # フラット・フィラー 3 本のみ除去、残り 4 本
+    assert report.n_filler_dropped == 3
+    assert report.as_dict()["n_filler_dropped"] == 3
+    assert report.rows == 4
+    assert report.n_dupes_dropped == 0
+
+    df = store.load_pair("EURUSD")
+    assert len(df) == 4
+    # 残存フレームにフィラー（vol0 かつ high==low）は無い
+    assert not ((df["volume"] == 0) & (df["high"] == df["low"])).any()
+    # 保持されるべき端ケースが存在する
+    assert (base_ts + pd.Timedelta(seconds=240)) in df.index  # vol0 high!=low
+    assert (base_ts + pd.Timedelta(seconds=300)) in df.index  # flat vol>0
+    # 実バーは残る
+    assert (base_ts + pd.Timedelta(seconds=0)) in df.index
+    assert (base_ts + pd.Timedelta(seconds=360)) in df.index
+    # 除去されたフィラー分足は不在
+    for sec in (60, 120, 180):
+        assert (base_ts + pd.Timedelta(seconds=sec)) not in df.index
 
 
 # --------------------------------------------------------------------------- #
