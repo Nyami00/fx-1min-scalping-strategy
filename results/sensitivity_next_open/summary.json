@@ -1,0 +1,406 @@
+{
+  "pairs": [
+    "EURUSD",
+    "USDJPY",
+    "GBPUSD",
+    "AUDUSD",
+    "NZDUSD",
+    "USDCAD",
+    "USDCHF",
+    "EURJPY",
+    "GBPJPY",
+    "AUDJPY",
+    "NZDJPY",
+    "CADJPY",
+    "CHFJPY",
+    "EURGBP",
+    "EURAUD",
+    "EURCHF",
+    "EURCAD",
+    "GBPAUD",
+    "GBPCHF",
+    "AUDNZD"
+  ],
+  "ddof": 0,
+  "entry_next_open": true,
+  "per_pair": {
+    "EURUSD": {
+      "bars": 927395,
+      "candidates": 3940,
+      "trades": 3817,
+      "skips": {
+        "position_open": 47,
+        "invalid_sl": 76
+      },
+      "ambiguous": 37,
+      "reasons": {
+        "tp": 1562,
+        "sl": 2188,
+        "sl_gap": 67,
+        "eod": 0
+      },
+      "win_rate_cons": 0.4092219020172911,
+      "win_rate_standard": 0.3966465810846214
+    },
+    "USDJPY": {
+      "bars": 925864,
+      "candidates": 3917,
+      "trades": 3750,
+      "skips": {
+        "position_open": 69,
+        "invalid_sl": 98
+      },
+      "ambiguous": 53,
+      "reasons": {
+        "tp": 1496,
+        "sl": 2214,
+        "sl_gap": 40,
+        "eod": 0
+      },
+      "win_rate_cons": 0.3989333333333333,
+      "win_rate_standard": 0.3936
+    },
+    "GBPUSD": {
+      "bars": 925769,
+      "candidates": 3939,
+      "trades": 3798,
+      "skips": {
+        "position_open": 45,
+        "invalid_sl": 96
+      },
+      "ambiguous": 47,
+      "reasons": {
+        "tp": 1481,
+        "sl": 2262,
+        "sl_gap": 55,
+        "eod": 0
+      },
+      "win_rate_cons": 0.389942074776198,
+      "win_rate_standard": 0.37177461822011587
+    },
+    "AUDUSD": {
+      "bars": 925256,
+      "candidates": 4061,
+      "trades": 3943,
+      "skips": {
+        "position_open": 53,
+        "invalid_sl": 65
+      },
+      "ambiguous": 44,
+      "reasons": {
+        "tp": 1553,
+        "sl": 2305,
+        "sl_gap": 85,
+        "eod": 0
+      },
+      "win_rate_cons": 0.39386254121227493,
+      "win_rate_standard": 0.37636317524727364
+    },
+    "NZDUSD": {
+      "bars": 922745,
+      "candidates": 3873,
+      "trades": 3737,
+      "skips": {
+        "position_open": 70,
+        "invalid_sl": 66
+      },
+      "ambiguous": 47,
+      "reasons": {
+        "tp": 1521,
+        "sl": 2127,
+        "sl_gap": 89,
+        "eod": 0
+      },
+      "win_rate_cons": 0.407010971367407,
+      "win_rate_standard": 0.37356168049237354
+    },
+    "USDCAD": {
+      "bars": 924881,
+      "candidates": 4062,
+      "trades": 3922,
+      "skips": {
+        "position_open": 50,
+        "invalid_sl": 90
+      },
+      "ambiguous": 43,
+      "reasons": {
+        "tp": 1521,
+        "sl": 2322,
+        "sl_gap": 79,
+        "eod": 0
+      },
+      "win_rate_cons": 0.38781234064252934,
+      "win_rate_standard": 0.36053034166241715
+    },
+    "USDCHF": {
+      "bars": 926214,
+      "candidates": 4019,
+      "trades": 3856,
+      "skips": {
+        "position_open": 87,
+        "invalid_sl": 76
+      },
+      "ambiguous": 44,
+      "reasons": {
+        "tp": 1557,
+        "sl": 2208,
+        "sl_gap": 91,
+        "eod": 0
+      },
+      "win_rate_cons": 0.4037863070539419,
+      "win_rate_standard": 0.37136929460580914
+    },
+    "EURJPY": {
+      "bars": 929123,
+      "candidates": 4001,
+      "trades": 3876,
+      "skips": {
+        "position_open": 42,
+        "invalid_sl": 83
+      },
+      "ambiguous": 63,
+      "reasons": {
+        "tp": 1563,
+        "sl": 2279,
+        "sl_gap": 34,
+        "eod": 0
+      },
+      "win_rate_cons": 0.40325077399380804,
+      "win_rate_standard": 0.39447884416924667
+    },
+    "GBPJPY": {
+      "bars": 917309,
+      "candidates": 4027,
+      "trades": 3818,
+      "skips": {
+        "position_open": 142,
+        "invalid_sl": 67
+      },
+      "ambiguous": 64,
+      "reasons": {
+        "tp": 1543,
+        "sl": 2224,
+        "sl_gap": 50,
+        "eod": 1
+      },
+      "win_rate_cons": 0.404244170814776,
+      "win_rate_standard": 0.3955986376735656
+    },
+    "AUDJPY": {
+      "bars": 925814,
+      "candidates": 3936,
+      "trades": 3751,
+      "skips": {
+        "position_open": 98,
+        "invalid_sl": 87
+      },
+      "ambiguous": 63,
+      "reasons": {
+        "tp": 1508,
+        "sl": 2191,
+        "sl_gap": 52,
+        "eod": 0
+      },
+      "win_rate_cons": 0.4020261263663023,
+      "win_rate_standard": 0.3868301786190349
+    },
+    "NZDJPY": {
+      "bars": 922837,
+      "candidates": 3899,
+      "trades": 3705,
+      "skips": {
+        "position_open": 112,
+        "invalid_sl": 82
+      },
+      "ambiguous": 55,
+      "reasons": {
+        "tp": 1442,
+        "sl": 2202,
+        "sl_gap": 61,
+        "eod": 0
+      },
+      "win_rate_cons": 0.38920377867746286,
+      "win_rate_standard": 0.3524966261808367
+    },
+    "CADJPY": {
+      "bars": 925903,
+      "candidates": 4112,
+      "trades": 3957,
+      "skips": {
+        "position_open": 67,
+        "invalid_sl": 88
+      },
+      "ambiguous": 49,
+      "reasons": {
+        "tp": 1577,
+        "sl": 2323,
+        "sl_gap": 57,
+        "eod": 0
+      },
+      "win_rate_cons": 0.3985342431134698,
+      "win_rate_standard": 0.36517563810967907
+    },
+    "CHFJPY": {
+      "bars": 921846,
+      "candidates": 4136,
+      "trades": 3888,
+      "skips": {
+        "position_open": 162,
+        "invalid_sl": 86
+      },
+      "ambiguous": 70,
+      "reasons": {
+        "tp": 1550,
+        "sl": 2279,
+        "sl_gap": 58,
+        "eod": 1
+      },
+      "win_rate_cons": 0.398765114484178,
+      "win_rate_standard": 0.3804990995626447
+    },
+    "EURGBP": {
+      "bars": 924231,
+      "candidates": 4303,
+      "trades": 4060,
+      "skips": {
+        "position_open": 132,
+        "invalid_sl": 111
+      },
+      "ambiguous": 73,
+      "reasons": {
+        "tp": 1621,
+        "sl": 2353,
+        "sl_gap": 86,
+        "eod": 0
+      },
+      "win_rate_cons": 0.39926108374384234,
+      "win_rate_standard": 0.3167487684729064
+    },
+    "EURAUD": {
+      "bars": 928949,
+      "candidates": 4053,
+      "trades": 3915,
+      "skips": {
+        "position_open": 70,
+        "invalid_sl": 68
+      },
+      "ambiguous": 54,
+      "reasons": {
+        "tp": 1607,
+        "sl": 2270,
+        "sl_gap": 38,
+        "eod": 0
+      },
+      "win_rate_cons": 0.4104725415070243,
+      "win_rate_standard": 0.3910600255427842
+    },
+    "EURCHF": {
+      "bars": 924946,
+      "candidates": 4238,
+      "trades": 3997,
+      "skips": {
+        "position_open": 137,
+        "invalid_sl": 104
+      },
+      "ambiguous": 69,
+      "reasons": {
+        "tp": 1600,
+        "sl": 2310,
+        "sl_gap": 87,
+        "eod": 0
+      },
+      "win_rate_cons": 0.40030022516887664,
+      "win_rate_standard": 0.305479109331999
+    },
+    "EURCAD": {
+      "bars": 927016,
+      "candidates": 4140,
+      "trades": 3971,
+      "skips": {
+        "position_open": 83,
+        "invalid_sl": 86
+      },
+      "ambiguous": 52,
+      "reasons": {
+        "tp": 1575,
+        "sl": 2327,
+        "sl_gap": 69,
+        "eod": 0
+      },
+      "win_rate_cons": 0.39662553512969023,
+      "win_rate_standard": 0.3397129186602871
+    },
+    "GBPAUD": {
+      "bars": 921254,
+      "candidates": 4098,
+      "trades": 3929,
+      "skips": {
+        "position_open": 94,
+        "invalid_sl": 75
+      },
+      "ambiguous": 63,
+      "reasons": {
+        "tp": 1562,
+        "sl": 2314,
+        "sl_gap": 53,
+        "eod": 0
+      },
+      "win_rate_cons": 0.3975566301857979,
+      "win_rate_standard": 0.37592262662255027
+    },
+    "GBPCHF": {
+      "bars": 926039,
+      "candidates": 4206,
+      "trades": 3932,
+      "skips": {
+        "position_open": 193,
+        "invalid_sl": 81
+      },
+      "ambiguous": 72,
+      "reasons": {
+        "tp": 1594,
+        "sl": 2272,
+        "sl_gap": 65,
+        "eod": 1
+      },
+      "win_rate_cons": 0.40549478504197406,
+      "win_rate_standard": 0.2900025438819639
+    },
+    "AUDNZD": {
+      "bars": 927334,
+      "candidates": 4210,
+      "trades": 3850,
+      "skips": {
+        "position_open": 234,
+        "invalid_sl": 126
+      },
+      "ambiguous": 91,
+      "reasons": {
+        "tp": 1524,
+        "sl": 2247,
+        "sl_gap": 79,
+        "eod": 0
+      },
+      "win_rate_cons": 0.39584415584415583,
+      "win_rate_standard": 0.27350649350649353
+    }
+  },
+  "aggregate": {
+    "bars": 18500725,
+    "candidates": 81170,
+    "trades": 77472,
+    "skips": {
+      "position_open": 1987,
+      "invalid_sl": 1711
+    },
+    "ambiguous": 1153,
+    "reasons": {
+      "tp": 30957,
+      "sl": 45217,
+      "sl_gap": 1295,
+      "eod": 3
+    },
+    "win_rate_cons": 0.3996050032916392,
+    "win_rate_standard": 0.3602085995688598
+  }
+}
